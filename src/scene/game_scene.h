@@ -4,11 +4,14 @@
 #include <vector>
 
 class GameObject;
-
+class Ogg;
 
 class GameScene : public Scene {
 private:
   std::vector<GameObject*> gameObjects;
+  const char* songdir;
+
+  Ogg* song;
 
 public:
   GameScene(const char* songdir);

@@ -10,7 +10,6 @@
 #include <wiiuse/wpad.h>
 
 #include "gfx.h"
-#include "sfx.h"
 #include "input.h"
 #include "logger.h"
 
@@ -31,7 +30,6 @@ float gpuWait, vsyncWait;
 
 int main(int argc, char **argv) {
   GFX_Setup();
-  SFX_Setup();
   Wiimote_Init();
 
   // TODO: When the scene changes, instead of changing to the new scene we need to load resources.

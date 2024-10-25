@@ -2,9 +2,11 @@
 #include <cstdio>
 #include <fat.h>
 #include <sdcard/wiisd_io.h>
+
 #include "../gfx.h"
 #include "../logger.h"
 #include "../input.h"
+
 #include "../resource/model.h"
 
 #include "../gameobjects/block.h"
@@ -16,7 +18,12 @@ static GXColor LightColors[] = {
 		{ 0x80, 0x80, 0x80, 0xFF }  // Material 1
 };
 
-GameScene::GameScene() {
+GameScene::GameScene(const char* songdir) {
+  this->songdir = songdir;
+
+  char path[256];
+  sprintf(path, "%s/song.ogg", songdir);
+
   // load note model only once
   if (Block::model == NULL)
     Block::model = new Model("block.obj");
